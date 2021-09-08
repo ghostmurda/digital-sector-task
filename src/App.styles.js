@@ -17,4 +17,5 @@ export const
     activeBlue = '#3d5cc4',
     mainWidth = '992px',
     mainGray = '#E6E6E6',
-    mainTransition = '0.3s';
+    mainTransition = '0.3s',
+    mainRed = '#F90043';
