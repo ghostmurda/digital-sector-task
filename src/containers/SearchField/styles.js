@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { mainBlue, mainGray, mainTransition } from "../../App.styles";
+import { breakpointTablet, mainBlue, mainGray, mainTransition } from "../../App.styles";
 
 export const SearchInputField = styled.input`
     box-sizing: border-box;
     height: 54px;
-    width: 580px;
+    flex: 0 580px;
     font-family: Open Sans;
     font-style: normal;
     font-size: 14px;
@@ -16,5 +16,9 @@ export const SearchInputField = styled.input`
 
     &:focus {
         border: 1px solid ${mainBlue};
+    }
+
+    @media (max-width: ${breakpointTablet}) {
+        flex: 1 auto;
     }
 `;

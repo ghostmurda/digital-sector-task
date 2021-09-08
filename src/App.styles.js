@@ -18,4 +18,6 @@ export const
     mainWidth = '992px',
     mainGray = '#E6E6E6',
     mainTransition = '0.3s',
-    mainRed = '#F90043';
+    mainRed = '#F90043',
+    breakpointTablet = '992px',
+    breakpointMobile = '768px';

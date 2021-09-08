@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mainBlue, mainGray } from "../../App.styles";
+import { breakpointMobile, mainBlue, mainGray } from "../../App.styles";
 
 export const LinksListWrapper = styled.div`
     flex: 1 auto;
@@ -9,6 +9,18 @@ export const LinksListWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media (max-width: ${breakpointMobile}) {
+        align-items: flex-start;
+        padding: 0;
+        max-height: 232px;
+        overflow-y: auto;
+        margin-bottom: 16px;
+    }
+
+    @media (max-height: 570px) {
+        max-height: 128px;
+    }
 `;
 
 export const LinksTitle = styled.span`
