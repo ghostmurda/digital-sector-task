@@ -1,20 +1,30 @@
 /** Styles */
-import { LinkItem, LinksListWrapper, LinksTitle } from "./styles";
+import { LinkItem, LinksListWrapper, LinksTitle } from './styles';
 
-export default function LinksList() {
-    const links = [{title: 'Самая лучшая ссылка 1', link: 'https://swiperjs.com/api/'}]
+/** Misc */
+import { v4 } from 'uuid';
+
+export default function LinksList(props) {
+    const { links, activeGroupId } = props;
 
     return (
         <LinksListWrapper>
             <LinksTitle>Ссылки</LinksTitle>
-            {links && links.map((item) => {
-                return (
-                    <LinkItem>
-                        <b>{item.title}</b>
-                        <a href={item.link} target="_blank" rel="noreferrer">{item.link}</a>
-                    </LinkItem>
-                );
-            })}
+            {links &&
+                links.map((item, index) => {
+                    return item.groupId === activeGroupId && (
+                        <LinkItem key={index + v4}>
+                            <b>{item.title}</b>
+                            <a
+                                href={item.link}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                {item.link}
+                            </a>
+                        </LinkItem>
+                    );
+                })}
         </LinksListWrapper>
     );
 }

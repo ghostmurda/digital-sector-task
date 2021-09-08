@@ -1,16 +1,25 @@
 /** Styles */
-import { GroupItem, GroupsTitle, GroupsWrapper } from "./styles";
+import { GroupItem, GroupsTitle, GroupsWrapper } from './styles';
 
 /** Misc */
-import { v4 } from "uuid";
+import { v4 } from 'uuid';
 
-export default function Groups() {
-    const groups = ['группа1 ', 'группа 2', 'группа 3'];
+export default function Groups(props) {
+    const { groups, activeGroupId, changeGroup } = props;
 
     return (
         <GroupsWrapper>
             <GroupsTitle>Группы</GroupsTitle>
-            {groups && groups.map((item, index) => <GroupItem key={v4}>{item}</GroupItem>)}
+            {groups &&
+                groups.map((item, index) => (
+                    <GroupItem
+                        key={index + v4}
+                        isChoosed={index === activeGroupId}
+                        onClick={changeGroup(index)}
+                    >
+                        {item}
+                    </GroupItem>
+                ))}
         </GroupsWrapper>
     );
 }
