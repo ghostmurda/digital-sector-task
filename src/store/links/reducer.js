@@ -1,4 +1,4 @@
-import { ADD_LINK, CHANGE_ACTIVE_GROUP, LOAD_LINKS } from "./types";
+import { ADD_LINK, CHANGE_ACTIVE_GROUP, SET_SEARCHED_LINK } from "./types";
 
 const initState = {
     groups: ['Тестовая группа', 'Вторая группа', 'Третья группа'],
@@ -9,7 +9,8 @@ const initState = {
             groupId: 0
         }
     ],
-    activeGroup: 0
+    activeGroup: 0,
+    searchedString: ''
 };
 
 export default function linksReducer(state = initState, action) {
@@ -19,15 +20,15 @@ export default function linksReducer(state = initState, action) {
                 ...state,
                 links: [...state.links, action.payload]
             }
-        case LOAD_LINKS:
-            return {
-                ...state,
-                links: action.payload
-            }
         case CHANGE_ACTIVE_GROUP:
             return {
                 ...state,
                 activeGroup: action.payload
+            }
+        case SET_SEARCHED_LINK:
+            return {
+                ...state,
+                searchedString: action.payload
             }
         default:
             return state;

@@ -1,3 +1,6 @@
+/** React */
+import { useState, useEffect } from 'react';
+
 /** Styles */
 import { LinkItem, LinksListWrapper, LinksTitle } from './styles';
 
@@ -5,24 +8,44 @@ import { LinkItem, LinksListWrapper, LinksTitle } from './styles';
 import { v4 } from 'uuid';
 
 export default function LinksList(props) {
-    const { links, activeGroupId } = props;
+    const { links, activeGroupId, searchedString } = props;
+
+    const [searchedWords, setSearchedWords] = useState();
+
+    useEffect(() => {
+        searchedString && setSearchedWords(searchedString.toLowerCase().trim().split(' '));
+    }, [searchedString]);
 
     return (
         <LinksListWrapper>
             <LinksTitle>Ссылки</LinksTitle>
             {links &&
                 links.map((item, index) => {
-                    return item.groupId === activeGroupId && (
-                        <LinkItem key={index + v4()}>
-                            <b>{item.title}</b>
-                            <a
-                                href={item.link}
-                                target="_blank"
-                                rel="noreferrer"
+                    let isSearched = false;
+
+                    searchedWords &&
+                        searchedWords.forEach((word) => {
+                            (item.title.toLowerCase().includes(word) ||
+                                item.link.toLowerCase().includes(word)) &&
+                                (isSearched = true);
+                        });
+
+                    return (
+                        item.groupId === activeGroupId && (
+                            <LinkItem
+                                key={index + v4()}
+                                isSearched={isSearched}
                             >
-                                {item.link}
-                            </a>
-                        </LinkItem>
+                                <b>{item.title}</b>
+                                <a
+                                    href={item.link}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    {item.link}
+                                </a>
+                            </LinkItem>
+                        )
                     );
                 })}
         </LinksListWrapper>

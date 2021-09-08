@@ -2,12 +2,14 @@
 import {
     HeaderContainer,
     HeaderWrapper,
-    LogoWrapper,
-    SearchField
+    LogoWrapper
 } from './styles';
 
 /** Media */
 import { ReactComponent as LogoIcon } from '../../media/logo.svg';
+
+/** Components */
+import SearchField from '../../containers/SearchField';
 
 export default function Header() {
     return (
@@ -17,7 +19,7 @@ export default function Header() {
                     <LogoIcon />
                     <span>DIGITAL SECTOR</span>
                 </LogoWrapper>
-                <SearchField placeholder="Поиск" />
+                <SearchField />
             </HeaderContainer>
         </HeaderWrapper>
     );

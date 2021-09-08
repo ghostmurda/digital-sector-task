@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mainGray } from "../../App.styles";
+import { mainBlue, mainGray } from "../../App.styles";
 
 export const LinksListWrapper = styled.div`
     flex: 1 auto;
@@ -23,6 +23,10 @@ export const LinksTitle = styled.span`
 export const LinkItem = styled.div`
     display: flex;
     flex-direction: column;
-    height: 32px;
+    height: 64px;
     margin-bottom: 32px;
+    padding: 6px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    ${props => props.isSearched && `border: 1px solid ${mainBlue};`}
 `;
