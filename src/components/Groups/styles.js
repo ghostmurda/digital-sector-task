@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { mainBlue, mainGray, mainTransition } from "../../App.styles";
 
 export const GroupsWrapper = styled.div`
-    max-width: 180px;
+    flex: 0 180px;
     height: 100%;
     display: flex;
     flex-direction: column;
