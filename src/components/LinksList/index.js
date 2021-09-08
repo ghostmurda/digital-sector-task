@@ -13,7 +13,7 @@ export default function LinksList(props) {
             {links &&
                 links.map((item, index) => {
                     return item.groupId === activeGroupId && (
-                        <LinkItem key={index + v4}>
+                        <LinkItem key={index + v4()}>
                             <b>{item.title}</b>
                             <a
                                 href={item.link}

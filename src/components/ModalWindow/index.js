@@ -75,7 +75,7 @@ export default function ModalWindow(props) {
                             <Field name="groupId" component="select" defaultValue="0">
                                 {groups &&
                                     groups.map((item, index) => (
-                                        <option key={index + v4} value={index}>
+                                        <option key={index + v4()} value={index}>
                                             {item}
                                         </option>
                                     ))}

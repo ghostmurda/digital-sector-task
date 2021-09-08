@@ -1,5 +1,5 @@
 /** React */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 /** Components */
 import Groups from '../../components/Groups';
@@ -18,10 +18,21 @@ import { addLink, changeActiveGroup } from '../../store/links/actions';
 /** Styles */
 import { Button, LinksWrapper } from './styles';
 
+/** Misc */
+import { v4 } from 'uuid';
+
 export default function Links() {
     const [isModalOpen, setModalOpen] = useState(false);
 
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        for(let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+
+            key.includes('link') && dispatch(addLink(JSON.parse(localStorage.getItem(key))));
+        }
+    }, []);
 
     const { groups, links, activeGroupId } = useSelector((state) => ({
         groups: getGroups(state),
@@ -30,7 +41,12 @@ export default function Links() {
     }));
 
     const changeGroup = (groupId) => () => dispatch(changeActiveGroup(groupId));
-    const addNewLink = (linkData) => dispatch(addLink(linkData));
+
+    const addNewLink = (linkData) => {
+        dispatch(addLink(linkData));
+
+        localStorage.setItem(`link_${v4()}`, JSON.stringify(linkData));
+    };
 
     const closeModal = () => setModalOpen(false);
     const openModal = () => setModalOpen(true);

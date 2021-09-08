@@ -13,7 +13,7 @@ export default function Groups(props) {
             {groups &&
                 groups.map((item, index) => (
                     <GroupItem
-                        key={index + v4}
+                        key={index + v4()}
                         isChoosed={index === activeGroupId}
                         onClick={changeGroup(index)}
                     >
