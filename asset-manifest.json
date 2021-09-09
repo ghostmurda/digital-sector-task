@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/digital-sector-task/static/js/main.80866747.chunk.js",
+    "main.js.map": "/digital-sector-task/static/js/main.80866747.chunk.js.map",
+    "runtime-main.js": "/digital-sector-task/static/js/runtime-main.ecff545c.js",
+    "runtime-main.js.map": "/digital-sector-task/static/js/runtime-main.ecff545c.js.map",
+    "static/js/2.756672a8.chunk.js": "/digital-sector-task/static/js/2.756672a8.chunk.js",
+    "static/js/2.756672a8.chunk.js.map": "/digital-sector-task/static/js/2.756672a8.chunk.js.map",
+    "static/js/3.4d688c26.chunk.js": "/digital-sector-task/static/js/3.4d688c26.chunk.js",
+    "static/js/3.4d688c26.chunk.js.map": "/digital-sector-task/static/js/3.4d688c26.chunk.js.map",
+    "index.html": "/digital-sector-task/index.html",
+    "static/js/2.756672a8.chunk.js.LICENSE.txt": "/digital-sector-task/static/js/2.756672a8.chunk.js.LICENSE.txt",
+    "static/media/logo.a96ed8da.svg": "/digital-sector-task/static/media/logo.a96ed8da.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ecff545c.js",
+    "static/js/2.756672a8.chunk.js",
+    "static/js/main.80866747.chunk.js"
+  ]
+}
