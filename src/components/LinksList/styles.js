@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { breakpointMobile, mainBlue, mainGray } from "../../App.styles";
+import { breakpointMobile, breakpointTablet, mainBlue, mainGray } from "../../App.styles";
 
 export const LinksListWrapper = styled.div`
     flex: 1 auto;
@@ -41,4 +41,26 @@ export const LinkItem = styled.div`
     box-sizing: border-box;
     border-radius: 7px;
     ${props => props.isSearched && `border: 1px solid ${mainBlue};`}
+
+    @media (max-width: ${breakpointTablet}) {
+        width: 100%;
+    }
+
+    a {
+        max-width: 100%;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+    }
+`;
+
+export const LinkItemTitle = styled.div`
+    font-family: Open Sans;
+    font-weight: bold;
+    font-size: 1em;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
 `;

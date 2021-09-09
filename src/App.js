@@ -1,6 +1,3 @@
-/** React */
-import React from 'react';
-
 /** Styles */
 import { GlobalStyles } from './App.styles';
 

@@ -2,7 +2,12 @@
 import { useState, useEffect } from 'react';
 
 /** Styles */
-import { LinkItem, LinksListWrapper, LinksTitle } from './styles';
+import {
+    LinkItem,
+    LinkItemTitle,
+    LinksListWrapper,
+    LinksTitle
+} from './styles';
 
 /** Misc */
 import { v4 } from 'uuid';
@@ -13,7 +18,8 @@ export default function LinksList(props) {
     const [searchedWords, setSearchedWords] = useState();
 
     useEffect(() => {
-        searchedString && setSearchedWords(searchedString.toLowerCase().trim().split(' '));
+        searchedString &&
+            setSearchedWords(searchedString.toLowerCase().trim().split(' '));
     }, [searchedString]);
 
     return (
@@ -36,7 +42,7 @@ export default function LinksList(props) {
                                 key={index + v4()}
                                 isSearched={isSearched}
                             >
-                                <b>{item.title}</b>
+                                <LinkItemTitle>{item.title}</LinkItemTitle>
                                 <a
                                     href={item.link}
                                     target="_blank"
